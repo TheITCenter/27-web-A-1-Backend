@@ -4,7 +4,7 @@ import jwt from 'jwt-simple'
 
 const register = async (req, res) => {
   try {
-    const requiredFields = [
+    const requiredData = [
       'name',
       'lastName',
       'dateOfBirth',
@@ -13,11 +13,11 @@ const register = async (req, res) => {
       'password',
       'role'
     ]
-    for (const field of requiredFields) {
-      if (!req.body[field]) {
+    for (const data of requiredData) {
+      if (!req.body[data]) {
         return res.status(400).json({
           msg: 'Failed to register, missing fields',
-          error: `Missing field: ${field}`
+          error: `Missing field: ${data}`
         })
       }
     }
