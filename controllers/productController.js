@@ -31,4 +31,21 @@ const getAllProducts = async (req, res) => {
   }
 };
 
-export { createProduct, getAllProducts };
+const getProductsByCategory = async (req, res) => {
+  try {
+    const category = req.params.category.toLowerCase();
+    const products = await Product.find({ category: { $regex: category, $options: 'i' } });
+    const productCount = products.length;
+    res.status(200).json({
+      message: `${productCount} Products retrieved successfully`,
+      products,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "Error retrieving products",
+      error: err,
+    });
+  }
+};
+
+export { createProduct, getAllProducts, getProductsByCategory };
