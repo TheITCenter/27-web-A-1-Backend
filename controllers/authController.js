@@ -77,7 +77,8 @@ const login = async (req, res) => {
       const payload = {
         _id: user._id,
         userName: user.userName,
-        role: user.role
+        role: user.role,
+        name: user.name
       }
       const token = jwt.encode(payload, process.env.SECRET)
 
