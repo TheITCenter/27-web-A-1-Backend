@@ -7,11 +7,9 @@ const userSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: true
   },
-  dateOfBirth: {
-    type: Date,
-    required: true
+  phoneNumber: {
+    type: Number,
   },
   email: {
     type: String,
