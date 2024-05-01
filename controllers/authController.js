@@ -7,7 +7,7 @@ const register = async (req, res) => {
     const requiredData = [
       'name',
       'lastName',
-      'dateOfBirth',
+      'phoneNumber',
       'email',
       'userName',
       'password',
