@@ -3,6 +3,7 @@ import { connect } from "./config.js";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 const api = express();
 
@@ -13,6 +14,7 @@ api.use(cors());
 api.use(express.json());
 api.use("/auth", authRoutes);
 api.use("/products", productRoutes);
+api.use("/orders", orderRoutes);
 
 api.listen(PORT, () => {
   console.log(`API running on ${PORT}`);
