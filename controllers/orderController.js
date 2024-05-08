@@ -33,8 +33,8 @@ const getAllOrders = async (req, res) => {
 
 const getOrdersByUserName = async (req, res) => {
   try {
-    const userName = req.params.username;
-    const orders = await Order.find({ username: userName });
+    const userName = req.params.userName;
+    const orders = await Order.find({ userName: userName });
     const ordersCount = orders.length;
     res.status(200).json({
         message: `${ordersCount} Orders retrieved successfully`,
